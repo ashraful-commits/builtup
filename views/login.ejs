@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="author" content="Awaiken">
+ <!-- Page Title -->
+ <title>Builtup - Construction HTML Template</title>
+ <!-- Favicon Icon -->
+ <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+ <!-- Google Fonts Css-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+ <!-- Bootstrap Css -->
+ <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+ <!-- SlickNav Css -->
+ <link href="css/slicknav.min.css" rel="stylesheet">
+ <!-- Swiper Css -->
+ <link rel="stylesheet" href="css/swiper-bundle.min.css">
+ <!-- Font Awesome Icon Css-->
+ <link href="css/all.css" rel="stylesheet" media="screen">
+ <!-- Animated Css -->
+ <link href="css/animate.css" rel="stylesheet">
+ <!-- Magnific Popup Core Css File -->
+ <link rel="stylesheet" href="css/magnific-popup.css">
+ <!-- Mouse Cursor Css File -->
+ <link rel="stylesheet" href="css/mousecursor.css">
+ <!-- Main Custom Css -->
+ <link href="/css/style.css" rel="stylesheet" media="screen">
+ <link href="css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    
+    <a  style="position: absolute; top: 30px; left: 50px; z-index: 100; color: coral;;display:flex; justify-content:center;align-items:center" class="text-warning" href="/"><i class="fa-solid fa-arrow-left"></i><svg style="width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+      </svg> Back to home</a>
+    <div class="auth-body">
+        <div class="auth-wraper">
+            <div class="auth-featured">
+                <img  src="/images/about-us-img.png" alt="">
+            </div>
+            <div class="auth-form">
+                <h2>Sign In</h2>
+                <% if (message) { %>
+                    <p class="text-xl font-bold text-warning"> <%= message %> </p>
+                 <% } else { %>
+                    <p class="text-xl font-bold text-warning">Login Here !</p>
+                <% } %>
+                <div class="form-wraper">
+                    <form action="/auth/login" method="post">
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="email" placeholder="please enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" name="password" placeholder="please enter your password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning">Log In</button>
+                            <p style="margin-top: 10px;">Don's have an account? <a href="/auth/register">Sign Up</a></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="utility">
+                    
+                    <a href="/forget-password">Forgot password</a>
+                    <a href="/change-password">Change password</a>
+                </div>
+                <div class="social-login">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- Jquery Library File -->
+ <script src="js/jquery-3.7.1.min.js"></script>
+ <!-- Bootstrap js file -->
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <!-- Validator js file -->
+ <script src="js/validator.min.js"></script>
+ <!-- SlickNav js file -->
+ <script src="js/jquery.slicknav.js"></script>
+ <!-- Swiper js file -->
+ <script src="js/swiper-bundle.min.js"></script>
+ <!-- Counter js file -->
+ <script src="js/jquery.waypoints.min.js"></script>
+ <script src="js/jquery.counterup.min.js"></script>
+ <!-- Magnific js file -->
+ <script src="js/jquery.magnific-popup.min.js"></script>
+ <!-- SmoothScroll -->
+ <script src="js/SmoothScroll.js"></script>
+ <!-- Parallax js -->
+ <script src="js/parallaxie.js"></script>
+ <!-- MagicCursor js file -->
+ <script src="js/gsap.min.js"></script>
+ <script src="js/magiccursor.js"></script>
+ <!-- Text Effect js file -->
+ <script src="js/SplitText.js"></script>
+ <script src="js/ScrollTrigger.min.js"></script>
+ <!-- Wow js file -->
+ <script src="js/wow.js"></script>
+ <!-- Main Custom js file -->
+ <script src="js/function.js"></script>
+ <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+
+</body>
+</html>

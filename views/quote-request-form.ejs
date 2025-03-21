@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="author" content="Awaiken">
+ <!-- Page Title -->
+ <title>Builtup - Construction HTML Template</title>
+ <!-- Favicon Icon -->
+ <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+ <!-- Google Fonts Css-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+ <!-- Bootstrap Css -->
+ <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+ <!-- SlickNav Css -->
+ <link href="css/slicknav.min.css" rel="stylesheet">
+ <!-- Swiper Css -->
+ <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+ <!-- Font Awesome Icon Css-->
+ <link href="/css/all.css" rel="stylesheet" media="screen">
+ <!-- Animated Css -->
+ <link href="/css/animate.css" rel="stylesheet">
+ <!-- Magnific Popup Core Css File -->
+ <link rel="stylesheet" href="/css/magnific-popup.css">
+ <!-- Mouse Cursor Css File -->
+ <link rel="stylesheet" href="/css/mousecursor.css">
+ <!-- Main Custom Css -->
+ <link href="/css/style.css" rel="stylesheet" media="screen">
+ <link href="/css/custom.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+    
+         <!-- Preloader Start -->
+         <div class="preloader">
+            <div class="loading-container">
+                <div class="loading"></div>
+                <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        
+
+    <!-- Quote Request Section Start -->
+    <div class="quote-request d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-7">
+                    <div class="quote-form wow fadeInUp" data-wow-delay="0.25s">
+                        
+                        <!-- Section Title Start -->
+                        <div class="quote-section-title d-flex justify-content-center">
+                            <h2 class="fw-bold" >Project information</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <form id="quoteForm" action="/auth/quote" method="POST" data-toggle="validator" enctype="multipart/form-data">
+                            <div class="row">
+                                
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Project Subject" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group col-md-12 mb-4">
+                                    <div class="d-flex gap-3">
+                                        <input type="number" name="budget" class="form-control" placeholder="Estimated Budget (optional)">
+                                        <input type="date" name="start_date" class="form-control" placeholder="Preferred Start Date">
+                                        <label class="custom-file-upload">
+                                            <input type="file"  name="attachment">
+                                            PDF Upload
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group col-md-12 mb-5">
+                                    <textarea name="message" class="form-control" id="message" rows="3" placeholder="Project Details" required></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn-default">Submit</button>
+                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote Request Section End -->
+
+    <!-- JS Files -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="/js/validator.min.js"></script>
+    <script src="/js/jquery.slicknav.js"></script>
+    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/SmoothScroll.js"></script>
+    <script src="/js/parallaxie.js"></script>
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/magiccursor.js"></script>
+    <script src="/js/SplitText.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/function.js"></script>
+    <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<div class="about-us">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <!-- About Us Image Start -->
+          <div class="about-image">
+            <div class="about-img">
+              <figure class="reveal">
+                <img src="images/about-us-img.png" alt="" />
+              </figure>
+            </div>
+          </div>
+          <!-- About Us Image End -->
+        </div>
+
+        <div class="col-lg-7">
+          <!-- About Content Start -->
+          <div class="about-content">
+            <!-- Section Title Start -->
+            <div class="section-title">
+              <h3 class="wow fadeInUp">about us</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                Crafting structures that last a lifetime
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.25s">
+                Crafting structures that last a lifetime requires a holistic
+                approach that integrates advanced materials, resilient design,
+                regular maintenance, and sustainability practices. By learning
+                from historical examples and leveraging modern technology.
+              </p>
+            </div>
+            <!-- Section Title End -->
+
+            <!-- About Content Body Start -->
+            <div
+              class="about-content-body wow fadeInUp"
+              data-wow-delay="0.5s"
+            >
+              <ul>
+                <li>Comprehensive Services</li>
+                <li>Advanced Technology</li>
+                <li>Transparent Communication</li>
+              </ul>
+            </div>
+            <!-- About Content Body End -->
+
+            <!-- About Content Footer Start -->
+            <div
+              class="about-content-footer wow fadeInUp"
+              data-wow-delay="0.75s"
+            >
+              <div class="about-footer-btn">
+                <% if (user?.name) { %>
+                <a
+                  href="/auth/<%= user?.role %>"
+                  type="button"
+                  class="btn btn-warning btn-default"
+                  >Get Free Quote</a
+                >
+                <% } else { %>
+                <a
+                  type="button"
+                  class="btn btn-warning btn-default"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                  >Get Free Quote</a
+                >
+                <% } %>
+              </div>
+              <!-- Login Modal -->
+              <div
+                class="modal fade"
+                id="loginModal"
+                tabindex="-1"
+                aria-labelledby="loginModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">
+                        Sign In
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <% if (message) { %>
+                      <p class="text-danger text-center"><%= message %></p>
+                      <% } else { %>
+                      <p class="text-center">Login Here!</p>
+                      <% } %>
+
+                      <form action="/auth/login" method="post">
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            required
+                          />
+                        </div>
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-warning">
+                            Log In
+                          </button>
+                        </div>
+                      </form>
+
+                      <div class="text-center mt-3">
+                        <p>
+                          Don't have an account?
+                          <a
+                            class="btn btn-warning"
+                            href="/auth/register"
+                            >Sign Up</a
+                          >
+                        </p>
+                        <a href="/forget-password">Forgot password?</a> |
+                        <a href="/change-password">Change password</a>
+                      </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                      <a href="#" class="btn btn-outline-primary mx-1"
+                        ><i class="fa-brands fa-facebook"></i></a>
+                      <a href="#" class="btn btn-outline-danger mx-1"
+                        ><i class="fa-brands fa-google"></i></a>
+                      <a href="#" class="btn btn-outline-dark mx-1"
+                        ><i class="fa-brands fa-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sign Up Modal -->
+              <div
+                class="modal fade"
+                id="signupModal"
+                tabindex="-1"
+                aria-labelledby="signupModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="signupModalLabel">
+                        Sign Up
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <% if (message) { %>
+                      <p class="text-danger text-center"><%= message %></p>
+                      <% } else { %>
+                      <p class="text-center">Sign Up Here!</p>
+                      <% } %>
+
+                      <form action="/auth/register" method="post">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Enter your name"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            required
+                          />
+                        </div>
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-warning">
+                            Register Now
+                          </button>
+                        </div>
+                      </form>
+
+                      <div class="text-center mt-3">
+                        <a href="/auth/forget-password">Forgot password?</a> |
+                        <a
+                        class="text-warning"
+                          href="/auth/login"
+                          >Log In now</a
+                        >
+                      </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                      <a href="#" class="btn btn-outline-primary mx-1"
+                        ><i class="fa-brands fa-facebook"></i></a>
+                      <a href="#" class="btn btn-outline-danger mx-1"
+                        ><i class="fa-brands fa-google"></i></a>
+                      <a href="#" class="btn btn-outline-dark mx-1"
+                        ><i class="fa-brands fa-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-contact-support">
+                <div class="icon-box">
+                  <img src="images/icon-phone.svg" alt="" />
+                </div>
+                <div class="about-support-content">
+                  <p>call support center 24X7</p>
+                  <h3>+1 809 120 6705</h3>
+                </div>
+              </div>
+            </div>
+            <!-- About Content Footer End -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

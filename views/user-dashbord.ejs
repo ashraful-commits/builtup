@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Awaiken" />
+    <!-- Page Title -->
+    <title>Builtup - Construction HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet" />
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.css" rel="stylesheet" media="screen" />
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet" />
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css" />
+    <!-- Main Custom Css -->
+
+    <link href="/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/css/custom.css" rel="stylesheet" media="screen" />
+    <style>
+      /* Hide the button during print */
+      @media print {
+        #downloadPdfBtn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="userdashbordmodal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Projext information
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              id="quoteForm"
+              action="#"
+              method="POST"
+              data-toggle="validator"
+              enctype="multipart/form-data"
+            >
+              <div class="row">
+                <div class="form-group col-md-6 mb-4">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter Your Name"
+                    required
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group col-md-6 mb-4">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter Your Email"
+                    required
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group col-md-6 mb-4">
+                  <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group col-md-6 mb-4">
+                  <input
+                    type="text"
+                    name="subject"
+                    class="form-control"
+                    id="subject"
+                    placeholder="Project Subject"
+                    required
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group col-md-12 mb-4">
+                  <div class="d-flex gap-3">
+                    <input
+                      type="text"
+                      name="budget"
+                      class="form-control"
+                      placeholder="Estimated Budget (optional)"
+                    />
+                    <input
+                      type="date"
+                      name="start_date"
+                      class="form-control"
+                      placeholder="Preferred Start Date"
+                    />
+                    <label class="custom-file-upload">
+                      <input type="file" name="attachment" />
+                      PDF Upload
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 mb-5">
+                  <textarea
+                    name="message"
+                    class="form-control"
+                    id="message"
+                    rows="3"
+                    placeholder="Project Details"
+                    required
+                  ></textarea>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+    <div class="user-panel-page common-bg">
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="container">
+              <div class="row">
+                <div
+                  class="col-12 text-center user-dashbord-table-heading d-flex justify-content-center align-items-center gap-4 rounded-lg"
+                >
+                  <a class="d-inline-block w-full text-warning" href="/">
+                    <i class="fa-solid fa-arrow-left"></i> Back to home</a
+                  >
+                  |
+                  <h2 class="fw-bold text-uppercase my-4">
+                    Welcome to Dashboard
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mb-4 user-dashbord-quotebutton d-flex justify-content-center"
+            >
+              <a href="/auth/quote" class="btn-default btn-large border"
+                >get free quote</a
+              >
+            </div>
+            <% if (typeof message !== {}) { %>
+            <p class="text-xl font-bold text-warning"><%= message %></p>
+            <% } else { %>
+            <p class="text-xl font-bold text-white">"</p>
+            <% } %>
+            <table class="table table-dark table-hover user-dashbord-table">
+              <thead>
+                <tr>
+                  <th class="text-start col-1">S. No</th>
+                  <th class="text-start col-3">Name</th>
+                  <th class="text-start col-8 text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (allQuotes.length > 0) { %> <% allQuotes.forEach((quote,
+                index) => { %>
+
+                 <tr>
+                  <td>
+                    <div
+                    class="modal fade"
+                    id="invoiceModal"
+                    tabindex="-1"
+                    aria-labelledby="invoiceModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog modal-lg">
+                      <div id="invoiceModalContent" class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header bg-warning text-white">
+                          <h5 class="modal-title" id="invoiceModalLabel">
+                            Invoice Details
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+  
+                        <!-- Modal Body -->
+                        <div  class="modal-body p-4 bg-white text-dark">
+                          <!-- Invoice Header -->
+                          <div class="row mb-4">
+                            <div class="col-md-6">
+                              <h2 class="fw-bold text-warning"><%= quote?.paymentDetails?.companyName %></h2>
+                              <p class="mb-1"><%= quote?.paymentDetails?.billingAddress %></p>
+                              <p class="mb-1">
+                                <strong>Email:</strong> <%= quote?.paymentDetails?.email %>
+                              </p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                              <h4 class="fw-bold">Invoice #INV12345</h4>
+                              <p class="mb-1">
+                                <strong>Date:</strong> <%= quote?.paymentDetails?.createdAt %>
+                              </p>
+                              <p class="mb-1">
+                                <strong>Due Date:</strong> April 1, 2024
+                              </p>
+                            </div>
+                          </div>
+  
+                          <!-- Customer Details -->
+                          <hr />
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <h5 class="fw-bold">Billed To:</h5>
+                              <p class="mb-1"><strong><%= quote?.paymentDetails?.fullName %></strong></p>
+                              <p class="mb-1"><%= quote?.paymentDetails?.billingAddress %></p>
+                              <p class="mb-1">
+                                <strong>Email:</strong> <%= quote?.paymentDetails?.email %>
+                              </p>
+                            </div>
+                          </div>
+  
+                          <div class="row">
+                            <!-- Invoice Table -->
+                            <div class="table-responsive w-full">
+                              <table
+                                class="table table-bordered table-hover text-center"
+                              >
+                                <thead class="table-dark">
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Product A</td>
+                                    <td>1</td>
+                                    <td><%= quote?.paymentDetails?.amount %></td>
+                                    <td><%= quote?.paymentDetails?.amount %></td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <!-- Invoice Total -->
+                          <div class="row mt-4">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6 text-end">
+                              <h5 class="fw-bold">
+                                Subtotal:
+                                <span class="text-warning"><%= quote?.paymentDetails?.amount %></span>
+                              </h5>
+                              <h5 class="fw-bold">
+                                Tax (0%): <span class="text-danger">$00.00</span>
+                              </h5>
+                              <h4 class="fw-bold border-top pt-2">
+                                Total: <span class="text-success"><%= quote?.paymentDetails?.amount %></span>
+                              </h4>
+                            </div>
+                          </div>
+  
+                          <!-- Download PDF Button -->
+                          <div class="text-center mt-4">
+                            <!-- Button is visible by default, hidden during printing -->
+                            <button id="downloadPdfBtn" class="btn btn-success btn-lg px-4">
+                              <i class="bi bi-download"></i> Download as PDF
+                            </button>
+                          </div>
+                          
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </td>
+                 </tr>
+                <tr>
+                  <td class="text-start"><%= index + 1 %></td>
+                  <td class="text-start"><%= quote?.name %></td>
+
+                  <% if(quote.status === 'approved') { %>
+                  <td class="text-end">
+                    <div class="d-flex flex-wrap justify-content-end gap-2">
+                      <button
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#userdashbordmodal<%= quote?._id %>"
+                      >
+                        Show
+                      </button>
+                      <% if (quote && quote.paymentDetails && quote.paymentDetails.amount) { %>
+                        <a
+                          data-bs-toggle="modal"
+                          data-bs-target="#invoiceModal"
+                          class="btn btn-success btn-sm"
+                        >
+                          Download
+                        </a>
+                      <% } %>
+                      
+
+                      <button class="btn btn-success btn-sm">
+                        <%= quote?.payment %>
+                      </button>
+
+                      <% if (quote.payment === 'unpaid') { %>
+                      <!-- Stripe Payment Modal -->
+
+                      <% if (message?.quoteId==quote?._id) { %>
+                      <a
+                        href="<%= message?.url %>"
+                        class="text-xl font-bold text-white underline btn btn-warning btn-sm"
+                      >
+                        Complete Payment
+                      </a>
+                      <% } else { %>
+                      <button
+                        class="btn btn-info btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#paymentModal<%= quote?._id %>"
+                      >
+                        Pay Now
+                      </button>
+                      <% } %>
+                      <!-- Stripe Payment Modal -->
+                      <div
+                        class="modal fade"
+                        id="paymentModal<%= quote?._id %>"
+                        tabindex="-1"
+                        aria-labelledby="paymentModalLabel<%= quote?._id %>"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5
+                                class="modal-title text-black"
+                                id="paymentModalLabel<%= quote?._id %>"
+                              >
+                                Stripe Payment
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <form
+                                action="/auth/quote/payment/<%= quote?._id %>"
+                                method="POST"
+                                id="payment-form"
+                              >
+                                <!-- Amount Field -->
+                                <div class="mb-3">
+                                  <label
+                                    for="amount"
+                                    class="form-label text-black align-start"
+                                    >Amount</label
+                                  >
+                                  <input
+                                    type="number"
+                                    class="form-control"
+                                    id="amount"
+                                    name="amount"
+                                    value="<%= quote?.budget %>"
+                                    readonly
+                                  />
+                                </div>
+
+                                <!-- User's Full Name -->
+                                <div class="mb-3">
+                                  <label
+                                    for="full-name"
+                                    class="form-label text-black align-start"
+                                    >Full Name</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="full-name"
+                                    name="fullName"
+                                    required
+                                  />
+                                </div>
+
+                                <!-- User's Email -->
+                                <div class="mb-3">
+                                  <label
+                                    for="email"
+                                    class="form-label text-black align-start"
+                                    >Email Address</label
+                                  >
+                                  <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    required
+                                  />
+                                </div>
+
+                                <!-- Credit/Debit Card -->
+                                <div class="mb-3">
+                                  <label
+                                    for="card-element"
+                                    class="form-label text-black align-start"
+                                    >Credit or Debit Card</label
+                                  >
+                                  <div id="card-element">
+                                    <!-- A Stripe Element will be inserted here. -->
+                                  </div>
+                                  <!-- Display errors here -->
+                                  <div id="card-errors" role="alert"></div>
+                                </div>
+
+                                <!-- Billing Address (Optional) -->
+                                <div class="mb-3">
+                                  <label
+                                    for="billing-address"
+                                    class="form-label text-black align-start"
+                                    >Billing Address (Optional)</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="billing-address"
+                                    name="billingAddress"
+                                  />
+                                </div>
+
+                                <!-- Phone Number (Optional) -->
+                                <div class="mb-3">
+                                  <label
+                                    for="phone"
+                                    class="form-label text-black align-start"
+                                    >Phone Number (Optional)</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phone"
+                                    name="phone"
+                                  />
+                                </div>
+
+                                <!-- Submit Button -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary"
+                                  id="submit-button"
+                                >
+                                  Pay Now
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% } %>
+                    </div>
+                  </td>
+                  <% } else { %>
+                  <td>
+                    <button class="btn btn-warning btn-sm">
+                      <%= quote?.status %>
+                    </button>
+                  </td>
+                  <% } %>
+                </tr>
+                <!-- invoic model  -->
+                
+                <!-- Modal for Each Quote -->
+                <div
+                  class="modal fade"
+                  id="userdashbordmodal<%= quote?._id %>"
+                  tabindex="-1"
+                  aria-labelledby="quoteModalLabel<%= quote?._id %>"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content" id="quoteModalContent">
+                      <div class="modal-header">
+                        <h5
+                          class="modal-title"
+                          id="quoteModalLabel<%= quote?._id %>"
+                        >
+                          Quote Details
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <p><strong>Name:</strong> <%= quote?.name %></p>
+                        <p><strong>Email:</strong> <%= quote?.email %></p>
+                        <p><strong>Phone:</strong> <%= quote?.phone %></p>
+                        <p><strong>Subject:</strong> <%= quote?.subject %></p>
+                        <p><strong>Message:</strong> <%= quote?.message %></p>
+
+                        <% if (quote.attachment) { %>
+                        <p>
+                          <strong>Attachment:</strong>
+                          <a
+                            href="/pdfs/<%= quote?.attachment %>"
+                            target="_blank"
+                            class="btn btn-secondary btn-sm"
+                            download
+                          >
+                            View PDF
+                          </a>
+                        </p>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% }); %> <% } else { %>
+                <tr>
+                  <td colspan="3" class="text-center">No quotes found.</td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+        
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jquery Library File -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="/js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="/js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="/js/SplitText.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="/js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="/js/function.js"></script>
+    <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      document
+        .getElementById("downloadPdfBtn")
+        .addEventListener("click", function () {
+          const { jsPDF } = window.jspdf;
+    
+          // Temporarily hide the button to exclude it from the PDF
+          const downloadBtn = document.getElementById("downloadPdfBtn");
+          downloadBtn.style.display = "none";
+          // Capture the modal content
+          html2canvas(document.querySelector("#invoiceModalContent")).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF("p", "mm", "a4");
+            const imgWidth = 190; // Fit width within A4
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    
+            pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+            pdf.save("quote-details.pdf");
+    
+            // Show the button again after the download
+            downloadBtn.style.display = "inline-block";
+          });
+        });
+    </script>
+  </body>
+</html>

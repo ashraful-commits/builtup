@@ -1,0 +1,222 @@
+<div class="cta-box">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-8">
+                <!-- Section Title Start -->
+                <div class="section-title">
+                    <h2 class="text-anime-style-3" data-cursor="-opaque">Let's bulid something great together!</h2>
+                    <p class="wow fadeInUp">Don't wait any longer to bring your construction dreams to life. Partner with Builtup and experience unparalleled service and quality.</p>
+                </div>
+                <!-- Section Title End -->
+
+                <!-- Section Btn Start -->
+                <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
+                  
+                    <% if (user?.name) { %>
+                        <a
+                          href="/auth/<%= user?.role %>"
+                          type="button"
+                          class="btn btn-warning btn-default"
+                          >Get Free Quote</a
+                        >
+                        <% } else { %>
+                        <a
+                          type="button"
+                          class="btn btn-warning btn-default"
+                          data-bs-toggle="modal"
+                          data-bs-target="#loginModal"
+                          >Get Free Quote</a
+                        >
+                        <% } %>
+                </div>
+<!-- Login Modal -->
+              <div
+                class="modal fade"
+                id="loginModal"
+                tabindex="-1"
+                aria-labelledby="loginModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">
+                        Sign In
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <% if (message) { %>
+                      <p class="text-danger text-center"><%= message %></p>
+                      <% } else { %>
+                      <p class="text-center">Login Here!</p>
+                      <% } %>
+
+                      <form action="/auth/login" method="post">
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            required
+                          />
+                        </div>
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-warning">
+                            Log In
+                          </button>
+                        </div>
+                      </form>
+
+                      <div class="text-center mt-3">
+                        <p>
+                          Don't have an account?
+                          <a
+                            class="btn btn-warning"
+                            data-bs-dismiss="modal"
+                            data-bs-toggle="modal"
+                            data-bs-target="#signupModal"
+                            >Sign Up</a
+                          >
+                        </p>
+                        <a href="/forget-password">Forgot password?</a> |
+                        <a href="/change-password">Change password</a>
+                      </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                      <a href="#" class="btn btn-outline-primary mx-1"
+                        ><i class="fa-brands fa-facebook"></i></a>
+                      <a href="#" class="btn btn-outline-danger mx-1"
+                        ><i class="fa-brands fa-google"></i></a>
+                      <a href="#" class="btn btn-outline-dark mx-1"
+                        ><i class="fa-brands fa-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sign Up Modal -->
+              <div
+                class="modal fade"
+                id="signupModal"
+                tabindex="-1"
+                aria-labelledby="signupModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="signupModalLabel">
+                        Sign Up
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <% if (message) { %>
+                      <p class="text-danger text-center"><%= message %></p>
+                      <% } else { %>
+                      <p class="text-center">Sign Up Here!</p>
+                      <% } %>
+
+                      <form action="/auth/register" method="post">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Enter your name"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            required
+                          />
+                        </div>
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-warning">
+                            Register Now
+                          </button>
+                        </div>
+                      </form>
+
+                      <div class="text-center mt-3">
+                        <a href="/auth/forget-password">Forgot password?</a> |
+                        <a
+                          data-bs-toggle="modal"
+                          data-bs-dismiss="modal"
+                          data-bs-target="#loginModal"
+                          >Log In now</a
+                        >
+                      </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                      <a href="#" class="btn btn-outline-primary mx-1"
+                        ><i class="fa-brands fa-facebook"></i></a>
+                      <a href="#" class="btn btn-outline-danger mx-1"
+                        ><i class="fa-brands fa-google"></i></a>
+                      <a href="#" class="btn btn-outline-dark mx-1"
+                        ><i class="fa-brands fa-github"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- Section Btn End -->
+            </div>
+
+            <div class="col-lg-5 col-md-4">
+                <!-- Cta Box Image Start -->
+                <div class="cta-box-image">
+                    <figure>
+                        <img src="images/cta-box-img.png" alt="">
+                    </figure>
+                </div>
+                <!-- Cta Box Image End -->
+            </div>
+        </div>
+    </div>
+</div>

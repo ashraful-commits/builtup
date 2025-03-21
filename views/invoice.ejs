@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Awaiken">
+  <!-- Page Title -->
+  <title>Builtup - Construction HTML Template</title>
+  <!-- Favicon Icon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <!-- Google Fonts Css-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <!-- Bootstrap Css -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  <!-- SlickNav Css -->
+  <link href="css/slicknav.min.css" rel="stylesheet">
+  <!-- Swiper Css -->
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <!-- Font Awesome Icon Css-->
+  <link href="css/all.css" rel="stylesheet" media="screen">
+  <!-- Animated Css -->
+  <link href="css/animate.css" rel="stylesheet">
+  <!-- Magnific Popup Core Css File -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- Mouse Cursor Css File -->
+  <link rel="stylesheet" href="css/mousecursor.css">
+  <!-- Main Custom Css -->
+  <link href="css/custom.css" rel="stylesheet" media="screen">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        .invoice-container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+        .company-details,
+        .client-details {
+            margin-bottom: 20px;
+        }
+        .invoice-details {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .invoice-details th, .invoice-details td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .invoice-details th {
+            background: #333;
+            color: #fff;
+        }
+        .total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+  <!-- Preloader Start -->
+  <div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<div class="invoice-container">
+    <!-- Invoice Header -->
+    <div class="header">
+        <h1>Contractor Invoice</h1>
+        <p>Invoice # <strong>INV-123456</strong></p>
+        <p>Date: <strong>March 17, 2025</strong></p>
+    </div>
+
+    <!-- Company Details -->
+    <div class="company-details">
+        <h3>Contractor Company</h3>
+        <p>123 Main Street, City, Country</p>
+        <p>Email: contractor@example.com</p>
+        <p>Phone: +123 456 7890</p>
+    </div>
+
+    <!-- Client Details -->
+    <div class="client-details">
+        <h3>Client Information</h3>
+        <p>Name: <strong>John Doe</strong></p>
+        <p>Email: john.doe@example.com</p>
+        <p>Address: 456 Client Street, City</p>
+    </div>
+
+    <!-- Invoice Table -->
+    <table class="invoice-details">
+        <thead>
+            <tr>
+                <th>Service Description</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Building Construction</td>
+                <td>1</td>
+                <td>$5000</td>
+                <td>$5000</td>
+            </tr>
+            <tr>
+                <td>Plumbing & Electrical</td>
+                <td>2</td>
+                <td>$800</td>
+                <td>$1600</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Total Amount -->
+    <p class="total">Total Amount: <strong>$6600</strong></p>
+
+    <!-- Invoice Footer -->
+    <div class="footer">
+        <p>Thank you for your business!</p>
+        <p>Payment Due: <strong>March 30, 2025</strong></p>
+    </div>
+</div>
+
+
+ <!-- Jquery Library File -->
+ <script src="js/jquery-3.7.1.min.js"></script>
+ <!-- Bootstrap js file -->
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <!-- Validator js file -->
+ <script src="js/validator.min.js"></script>
+ <!-- SlickNav js file -->
+ <script src="js/jquery.slicknav.js"></script>
+ <!-- Swiper js file -->
+ <script src="js/swiper-bundle.min.js"></script>
+ <!-- Counter js file -->
+ <script src="js/jquery.waypoints.min.js"></script>
+ <script src="js/jquery.counterup.min.js"></script>
+ <!-- Magnific js file -->
+ <script src="js/jquery.magnific-popup.min.js"></script>
+ <!-- SmoothScroll -->
+ <script src="js/SmoothScroll.js"></script>
+ <!-- Parallax js -->
+ <script src="js/parallaxie.js"></script>
+ <!-- MagicCursor js file -->
+ <script src="js/gsap.min.js"></script>
+ <script src="js/magiccursor.js"></script>
+ <!-- Text Effect js file -->
+ <script src="js/SplitText.js"></script>
+ <script src="js/ScrollTrigger.min.js"></script>
+ <!-- Wow js file -->
+ <script src="js/wow.js"></script>
+ <!-- Main Custom js file -->
+ <script src="js/function.js"></script>
+ <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+</body>
+</html>

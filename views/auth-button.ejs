@@ -1,0 +1,23 @@
+<!-- Let’s Start Button Start -->
+<div class="header-btn d-inline-flex">
+    <% if (user?.name) { %>
+        <div class="dropdown">
+            <p class="text-warning text-capitalize text-pink-700 font-bold cursor-pointer dropdown-toggle" 
+               id="userDropdown" 
+               data-bs-toggle="dropdown" 
+               aria-expanded="false">
+                <%= user?.name %>
+            </p>
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <li><a class="text-secondary" href="/auth/<%= user?.role %>">Dashboard</a></li>
+                <li><a class="text-secondary d-block w-full" href="/change-password">Change Password</a></li>
+
+                <li><a class=" text-danger" href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+    <% } else { %>
+        <a href="/auth/register" class="btn btn-warning me-3">Sign in/Sign up</a>
+    <% } %>
+</div>
+<!-- Let’s Start Button End -->

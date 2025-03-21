@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Builtup - Construction HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="css/all.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <style>
+        .header-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+        }
+        
+        .categories {
+            flex: 1 1 25%; /* Flex-grow, flex-shrink, flex-basis */
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .categories h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .categories ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .categories li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .categories li::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -7px;
+            background-image: url("../images/readmore-arrow.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 20px;
+            height: 20px;
+            transition: 0.3s ease-in-out;
+        }
+        .service li::before{
+            content: '\25B6'; /* Unicode for right-pointing triangle */
+            font-size: 14px;
+            color: #ffae00;
+            position: absolute;
+            left: -15px;
+            top: 2px;
+        }
+        .main-content {
+            flex: 1 1 75%; /* Flex-grow, flex-shrink, flex-basis */
+            padding-left: 20px;
+        }
+        
+        .image-section img {
+            max-width: 100%; /* Make image responsive */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: add border radius to image */
+        }
+        
+        .text-section {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .guarantees {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        .guarantees li {
+            padding: 5px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .guarantees li::before {
+            content: '\2714'; /* Unicode checkmark */
+            margin-right: 8px;
+            color: green;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column; /* Stack categories and main content */
+            }
+        
+            .categories, .main-content {
+                width: 100%; /* Full width on smaller screens */
+                padding-left: 0; /* Remove left padding */
+            }
+            .img2{
+                display: none;
+            }
+        }
+        @media (max-width: 1062px){
+            
+            .img2{
+                display: none;
+            }
+        }</style>
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header" style="width: 100%;">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand" href="./">
+						<img src="images2/reliable.png" alt="" class="logoreliable"></a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="/">Home</a>
+                                <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="service">Services</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="addition-service">Addition 
+                                        </a></li>
+                                        <li class="nav-item"><a class="nav-link" href="basement">Basement
+                                        </a></li>
+                                        <li class="nav-item"><a class="nav-link" href="renovation">Renovations
+                                        </a></li>
+                                        <li class="nav-item"><a class="nav-link" href="roofing">Roofing 
+                                        </a></li>
+                                        <li class="nav-item"><a class="nav-link" href="siding">Siding</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="./contact">Contact us</a></li>
+                                
+                                <%- include('auth-button-mobile.ejs') %> 
+                            </ul>
+                        </div>
+                        <%- include('auth-button.ejs') %> 
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Start -->
+    <div class="hero bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content">
+                        <div class="section-title">
+                            <h1 class="text-anime-style-3" data-cursor="-opaque">Services
+                            </h1>
+                            <a class="wow fadeInUp" data-wow-delay="0.25s" href="/" style="color: #fff; text-decoration:none; ">Home / <span >Services / </span><span style="color: #ffb703;">Addition</span></a>
+                        </div>
+                    </div>
+                    <!-- Hero Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Section End -->
+    <header class="header-container">
+        <aside class="categories" >
+            <h3>Categories</h3>
+            <ul>
+                <li><a class="nav-link" href="addition-service">Addition 
+                </a></li>
+                <li><a class="nav-link" href="basement">Basement
+                </a></li>
+                <li><a class="nav-link" href="renovation">Renovations
+                </a></li>
+                <li><a class="nav-link" href="roofing">Roofing 
+                </a></li>
+                <li><a class="nav-link" href="siding">Siding</a></li>
+            </ul>
+        </aside>
+
+        <div class="main-content">
+            <div class="image-section">
+                <img src="images/post-2.jpg" alt="Construction Workers"  style="height: 200px; margin-right: 30px">
+                <img src="images/post-2.jpg" alt="Construction Workers" class="img2" style="height: 200px;">
+            </div>
+            <div class="text-section"  style="width: 100%;">
+                <p style="color: #333;">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                    alteration in some form, by injected humour, or randomised words which don’t look even slightly
+                    believable.
+                </p>
+                <div class="categories" >
+                    <ul>
+                        <li  class="service">100% Satisfaction Guarantee</li>
+                    <li  class="service">We Are Award Winning Company</li>
+                    <li  class="service">Professional Qualified</li>
+                    <li  class="service">Export And Profession Engineers</li>
+                    <li  class="service">Full Satisfaction Guarantee</li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+                        
+    
+
+    <!-- Why Choose Us Section Start -->
+    <div class="why-choose-us">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">what we do
+                        </h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Building the future on a
+                            foundation of excellence
+                            </h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">We specialize in a wide range of construction services, including residential, commercial, and industrial projects. From initial design to final inspection, we work closely with our clients to understand their unique needs and vision.
+
+                        </p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">800</span>+</h3>
+                            <p>Buildings Control Approval Rate
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+            
+                <div class="col-lg-3 col-md-4">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">800</span>+</h3>
+                            <p>Active Construction Management
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+            
+                <div class="col-lg-3 col-md-4">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">800</span>+</h3>
+                            <p>Completed Projects Every Year
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+            
+                <div class="col-lg-3 col-md-4">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                       
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">800</span>+</h3>
+                            <p>Million Euros Turnover In The 2020
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section End -->
+
+   
+    <!-- Our Projects Section End -->
+
+    <!-- Cta Box Section Start -->
+    <%- include('cta-box.ejs') %>
+    <!-- Cta Box Section End -->
+
+   
+
+    <!-- Contact Us Section Start -->
+    <div class="contact-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-5">
+                    <!-- Contact Sidebar Start -->
+                    <div class="contact-sidebar wow fadeInUp" data-wow-delay="0.25s">
+                        <!-- Contact Info Start -->
+                        <div class="contact-info">
+                            <div class="icon-box">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <div class="contact-info-content">
+                                <p>call support center 24/7</p>
+                                <h3>+1 809 120 6705</h3>
+                            </div>
+                        </div>
+                        <!-- Contact Info End -->
+
+                        <!-- Contact Info Start -->
+                        <div class="contact-info">
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <div class="contact-info-content">
+                                <p>write to us</p>
+                                <h3>info@domain.com</h3>
+                            </div>
+                        </div>
+                        <!-- Contact Info End -->
+
+                        <!-- Contact Info Image Start -->
+                        <div class="contact-info-image">
+                            <figure>
+                                <img src="images/contact-info-img.png" alt="">
+                            </figure>
+                        </div>
+                        <!-- Contact Info Image End -->
+                    </div>
+                    <!-- Contact Sidebar End -->
+                </div>
+
+                <div class="col-lg-8 col-md-7">
+                    <!-- Contact Form start -->
+                    <div class="contact-form wow fadeInUp" data-wow-delay="0.25s">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">contact us</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Get in touch with us</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <form id="contactForm" action="#" method="POST" data-toggle="validator">
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your name" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your email" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone number" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group col-md-6 mb-4">
+                                    <input type="text" name="website" class="form-control" id="website" placeholder="Subject" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group col-md-12 mb-5">
+                                    <textarea name="msg" class="form-control" id="msg" rows="3" placeholder="Message" required=""></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn-default">submit</button>
+                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Contact Form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Us Section End -->
+
+    <!-- Footer Start -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            <figure><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="225" height="60" viewBox="0 0 225 60">
+                            <defs>
+                            <clipPath id="clip_0">
+                            <path d="M163.49259 50.595148 169.27587 47.747316 170.4788 50.190198 164.69553 53.03803 163.49259 50.595148Z"/>
+                            </clipPath>
+                            <clipPath id="clip_1">
+                            <path d="M117.79372 44.861413H127.4424V47.747304H117.79372Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_2">
+                            <path d="M117.79372 44.861413H127.4424V47.747304H117.79372Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_3">
+                            <path d="M61.11984 47.747304H169.27587V49.82218H61.11984Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_4">
+                            <path d="M162.01825 51.550645 170.7415 46.140195 171.95313 48.093694 163.22988 53.504144 162.01825 51.550645Z"/>
+                            </clipPath>
+                            <clipPath id="clip_5">
+                            <path d="M59.04496 23.974215H61.11984V47.747304H59.04496Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_6">
+                            <path d="M61.861944 27.1175H63.93682V39.567594H61.861944Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_7">
+                            <path d="M58.673906 46.57053H61.49089V53.07383H58.673906Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_8">
+                            <path d="M56.405126 50.68048H63.40342V52.962846H56.405126Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_9">
+                            <path d="M88.28349 27.1175H110.48682V30.808167H88.28349Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            <clipPath id="clip_10">
+                            <path d="M122.313068 41.90181H125.140659V43.97669H122.313068Z" clip-rule="evenodd"/>
+                            </clipPath>
+                            </defs>
+                            <path transform="matrix(.75,0,0,.75,0,0)" d="M0 0H300V80H0Z" fill="none"/>
+                            <path transform="matrix(.75,0,0,.75,61.11984,47.728067)" d="M0 0H144.20804V4H0Z" fill="#ffb703"/>
+                            <path transform="matrix(.009397198,.7499411,-.7499411,.009397198,63.940244,25.465279)" d="M0 0H32.252847V4H0Z" fill="#ffb703"/>
+                            <path transform="matrix(-.64554449,.38180147,-.38180147,-.64554449,83.66411,15.511202)" d="M0 0H32.594648V4H0Z" fill="#ffb703"/>
+                            <path transform="matrix(.46242304,.59047856,-.59047856,.46242304,60.353937,10.775562)" d="M0 0H2.9332059V2H0Z" fill="none"/>
+                            <path transform="matrix(0,.75,-.75,0,72.75189,.9397888)" d="M0 0H64.976039V4H0Z" fill="#ffb703"/>
+                            <path transform="matrix(0,.75,-.75,0,56.046869,.04758644)" d="M0 0H74.51213V4H0Z" fill="#ffb703"/>
+                            <path transform="matrix(.7499995,.00081000759,-.00081000759,.7499995,54.548486,.000000014901162)" d="M0 0H24.209939V4H0Z" fill="#ffb703"/>
+                            <text fill="#ffffff" xml:space="preserve" transform="matrix(.41497553 0 0 .41497553 86.398509 29.75301)" font-size="40" font-family="CAGenerated"><tspan y="35.99997" x=".0033340455 24.683312 46.883295 67.32328 78.323268 90.32325 102.323238 127.52322 147.9632">RELI  BLE</tspan></text>
+                            <path transform="matrix(-.613818,-.43096114,.43096114,-.613818,101.2491,29.911053)" d="M0 0H33.70314V4H0Z" fill="#ffb703"/>
+                            <g clip-path="url(#clip_0)">
+                            <path transform="matrix(.87254688,-.42966337,.42966337,.87254688,163.49259,50.595148)" d="M0 0H6.6280505V2.7997134H0Z" fill="none"/>
+                            </g>
+                            <g clip-path="url(#clip_1)">
+                            <path transform="matrix(.97259888,0,0,.97259888,117.79372,44.861413)" d="M0 0H9.920515V2.967195H0Z" fill="none"/>
+                            </g>
+                            <g clip-path="url(#clip_2)">
+                            <path transform="matrix(.97259888,0,0,.97259888,117.79372,44.861413)" stroke-width="20.049376" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="none" d="M0 0H9.920515V2.967195H0Z"/>
+                            </g>
+                            <g clip-path="url(#clip_3)">
+                            <path transform="matrix(.97259888,0,0,.97259888,61.11984,47.747304)" d="M0 0H111.203128V2.1333335H0Z" fill="#ffb703"/>
+                            </g>
+                            <g clip-path="url(#clip_4)">
+                            <path transform="matrix(.82652816,-.51264,.51264,.82652816,162.01825,51.550645)" d="M0 0H10.5540909V2.3635H0Z" fill="none"/>
+                            </g>
+                            <g clip-path="url(#clip_5)">
+                            <path transform="matrix(.97259888,0,0,.97259888,59.04496,23.974215)" d="M0 0H2.1333335V24.44285H0Z" fill="none"/>
+                            </g>
+                            <g clip-path="url(#clip_6)">
+                            <path transform="matrix(.97259888,0,0,.97259888,61.861944,27.1175)" d="M0 0H2.1333335V12.800851H0Z" fill="#ffb703"/>
+                            </g>
+                            <g clip-path="url(#clip_7)">
+                            <path transform="matrix(.97259888,0,0,.97259888,58.673906,46.57053)" d="M0 0H2.896348V6.686518H0Z" fill="none"/>
+                            </g>
+                            <path transform="matrix(0,.75,-.75,0,62.619844,40.43424)" d="M0 0H13.661654V2H0Z" fill="#ffb703"/>
+                            <g clip-path="url(#clip_8)">
+                            <path transform="matrix(.97259888,0,0,.97259888,56.405126,50.68048)" d="M0 0H7.195458V2.3466666H0Z" fill="none"/>
+                            </g>
+                            <g clip-path="url(#clip_9)">
+                            <path transform="matrix(.97259888,0,0,.97259888,88.28349,27.1175)" d="M0 0H22.828866V3.7946444H0Z" fill="none"/>
+                            </g>
+                            <path transform="matrix(-.015229999,.7498454,-.7498454,-.015229999,121.68486,39.071847)" d="M0 1C0 .3333333 .3333333 0 1 0H6.7405407C7.407207 0 7.7405407 .3333333 7.7405407 1 7.7405407 1.6666668 7.407207 2 6.7405407 2H1C.3333333 2 0 1.6666668 0 1Z" fill="#ffffff"/>
+                            <path transform="matrix(0,.75,-.75,0,127.26889,39.056)" d="M0 1C0 .3333333 .3333333 0 1 0H6.7405407C7.407207 0 7.7405407 .3333333 7.7405407 1 7.7405407 1.6666668 7.407207 2 6.7405407 2H1C.3333333 2 0 1.6666668 0 1Z" fill="#ffffff"/>
+                            <path transform="matrix(-.32283188,.6769635,-.6769635,-.32283188,124.556308,34.098299)" d="M0 1C0 .3333333 .3333333 0 1 0H9.127752C9.794419 0 10.127752 .3333333 10.127752 1 10.127752 1.6666668 9.794419 2 9.127752 2H1C.3333333 2 0 1.6666668 0 1Z" fill="#ffffff"/>
+                            <path transform="matrix(.34836529,.6641849,-.6641849,.34836529,123.93512,33.29805)" d="M0 1C0 .3333333 .3333333 0 1 0H9.516893C10.18356 0 10.516893 .3333333 10.516893 1 10.516893 1.6666668 10.18356 2 9.516893 2H1C.3333333 2 0 1.6666668 0 1Z" fill="#ffffff"/>
+                            <g clip-path="url(#clip_10)">
+                            <path transform="matrix(.97259888,0,0,.97259888,122.313068,41.90181)" d="M0 0H2.9072517V2.1333335H0Z" fill="#ffffff"/>
+                            </g>
+                            <text fill="#ffffff" xml:space="preserve" transform="matrix(.41497553 0 0 .41497553 84.7722 52.962846)" font-size="14.66" font-family="CanvaSans"><tspan y="13.533319" x=".06124878 11.125 22.60382 35.850267 44.688386 48.280885 52.682054 65.9285 75.46794 85.15767 96.63649 106.412097 115.25021 128.49666 137.33478 148.49156 157.03627">HOME IMPROVEMENTS</tspan></text>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M54.545297 57.070558H72.70588V60H54.545297Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M53.091955 4.1134H56.001787V59.997499H53.091955Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M69.79698 10.373272H72.70682V59.105298H69.79698Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M59.09527 46.408037H61.788026V49.18659H59.09527Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M61.118566 32.128004H83.64116V47.077257H61.118566Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M80.58741 30.170928H102.94704V47.07715H80.58741Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M59.04496 12.252697H61.11984V36.025789H59.04496Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M60.985555 10.355042H64.19824V34.57924H60.985555Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M61.861948 20.43241H63.936826V32.8825H61.861948Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M88.2835 29.191836H110.48683V32.882505H88.2835Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M122.51935 18.875504H127.68626V26.649088H122.51935Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M119.84375 18.904398H124.64542V26.49115H119.84375Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M119.96858 15.023251H121.78352V20.861927H119.96858Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M125.67019 15.039886H127.36759V20.845292H125.67019Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M122.313068 16.023312H125.140659V18.098189H122.313068Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M117.79372 12.252697H127.4424V15.138588H117.79372Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M61.021139 9.2208189H62.71854V19.46706H61.021139Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M162.01825 6.4958455H171.95313V13.859795H162.01825Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M163.49259 6.9619858H170.4788V12.252697H163.49259Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M58.673906 6.92617H61.49089V13.42947H58.673906Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M61.11984 9.362101H169.27587V12.271934H61.11984Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M61.11984 10.177819H169.27587V12.252697H61.11984Z" fill-opacity="0"/>
+                            <path transform="matrix(1,0,0,-1,0,60)" d="M56.40513 7.037154H63.403425V9.319519H56.40513Z" fill-opacity="0"/>
+                            </svg>
+                            </figure>
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- Footer Content Start -->
+                        <div class="footer-content">
+                            <p>Our post-construction services gives you peace of mind knowing that we are still here for you even after.</p>
+                        </div>
+                        <!-- Footer Content End -->
+                    </div>
+
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Quick Links Start -->
+                    <div class="footer-links">
+                        <h3>our services</h3>
+                        <ul>
+                            <li><a class="nav-link" href="addition-service">Addition 
+                            </a></li>
+                            <li><a class="nav-link" href="basement">Basement
+                            </a></li>
+                            <li><a class="nav-link" href="renovation">Renovations
+                            </a></li>
+                            <li><a class="nav-link" href="roofing">Roofing 
+                            </a></li>
+                            <li><a class="nav-link" href="siding">Siding</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Quick Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>company</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="about">About us</a></li>
+                            <li><a href="service">Services</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="contact">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Contact Info Box Start -->
+                    <div class="footer-links footer-contact-box">
+                        <h3>contact us</h3>
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>+1 809 120 6705</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>info@domain.com</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-location.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>37 San Juan Lane Graaf Florisstraat 22A,3021 CH</p>
+                        </div>
+                        <!-- Info Box End -->
+                    </div>
+                    <!-- Footer Contact Info Box End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 Reliable Home Improvements. All Rights Reserved. Designed and Developed by <a href="https://innovadetechnologies.in" style="color: #fff; font-weight:800; text-decoration: none;">Innovade Technologies</a></p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-5">
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+    <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+ <!-- Meta -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="author" content="Awaiken">
+ <!-- Page Title -->
+ <title>Builtup - Construction HTML Template</title>
+ <!-- Favicon Icon -->
+ <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+ <!-- Google Fonts Css-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+ <!-- Bootstrap Css -->
+ <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <!-- SlickNav Css -->
+ <link href="/css/slicknav.min.css" rel="stylesheet">
+ <!-- Swiper Css -->
+ <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+ <!-- Font Awesome Icon Css-->
+ <link href="/css/all.css" rel="stylesheet" media="screen">
+ <!-- Animated Css -->
+ <link href="/css/animate.css" rel="stylesheet">
+ <!-- Magnific Popup Core Css File -->
+ <link rel="stylesheet" href="/css/magnific-popup.css">
+ <!-- Mouse Cursor Css File -->
+ <link rel="stylesheet" href="/css/mousecursor.css">
+ <!-- Main Custom Css -->
+ <link href="/css/style.css" rel="stylesheet" media="screen">
+ <link href="/css/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+     
+      <!-- Preloader Start -->
+      <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="/images/loader.svg" alt=""></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!--admin quote show  Modal -->
+<div class="modal fade" id="userdashbordmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Projext information</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="quoteForm" action="#" method="POST" data-toggle="validator">
+                <div class="row">
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Project Subject" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-md-12 mb-4">
+                        <div class="d-flex gap-3">
+                            <input type="text" name="budget" class="form-control" placeholder="Estimated Budget (optional)">
+                            <input type="date" name="start_date" class="form-control" placeholder="Preferred Start Date">
+                            <label class="custom-file-upload">
+                                <input type="file" name="attachment"  type="file" name="gallery" id="photo_view"  >
+                                PDF Upload
+                            </label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-12 mb-5">
+                        <textarea name="message" class="form-control" id="message" rows="3" placeholder="Project Details" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal -->
+
+
+
+    <!--admin blog create Modal -->
+<div class="modal fade" id="adminBlogCreateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Blog</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="quoteForm" action="/auth/admin/blog" method="POST" data-toggle="validator" enctype="multipart/form-data">
+                <div class="row">
+                    
+                    <div class="form-group col-md-12 mb-4">
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Blog Title" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+
+                    <div class="form-group col-md-12 mb-4">
+                        <div class="d-flex gap-3">
+                            <label class="custom-file-upload">
+                                <input type="file" name="photo" type="file" name="gallery" id="photo_view"  >
+                                Upload img
+                            </label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-12 mb-5">
+                        <textarea name="description" class="form-control" id="description" rows="3" placeholder="Project Details" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <button type="submit" class="btn-default">Submit</button>
+                        <div id="msgSubmit" class="h3 hidden"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal -->
+
+
+    <!--admin blog show Modal -->
+<div class="modal fade" id="userDashbordBlogShowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Blog Show</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="quoteForm" action="#" method="POST" data-toggle="validator">
+                <div class="row">
+                    
+                    <div class="form-group col-md-12 mb-4">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Blog Title" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Project Subject" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-md-12 mb-4">
+                        <div class="d-flex gap-3">
+                            <input type="text" name="budget" class="form-control" placeholder="Estimated Budget (optional)">
+                            <input type="date" name="start_date" class="form-control" placeholder="Preferred Start Date">
+                            <label class="custom-file-upload">
+                                <input type="file" name="attachment" accept=".pdf">
+                                PDF Upload
+                            </label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-12 mb-5">
+                        <textarea name="message" class="form-control" id="message" rows="3" placeholder="Project Details" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal -->
+
+    <!--admin blog Edit Modal -->
+<div class="modal fade" id="userDashbordBlogEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Blog Edit</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="quoteForm" action="#" method="POST" data-toggle="validator">
+                <div class="row">
+                    
+                    <div class="form-group col-md-12 mb-4">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Blog Title" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 mb-4">
+                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Project Subject" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group col-md-12 mb-4">
+                        <div class="d-flex gap-3">
+                            <input type="text" name="budget" class="form-control" placeholder="Estimated Budget (optional)">
+                            <input type="date" name="start_date" class="form-control" placeholder="Preferred Start Date">
+                            <label class="custom-file-upload">
+                                <input type="file" name="attachment" accept=".pdf">
+                                PDF Upload
+                            </label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-12 mb-5">
+                        <textarea name="message" class="form-control" id="message" rows="3" placeholder="Project Details" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <button type="submit" class="btn-default">Submit</button>
+                        <div id="msgSubmit" class="h3 hidden"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal -->
+
+    <div class="admin-panel-quote-page common-bg">
+       <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="col-12 text-center user-dashbord-table-heading">
+                    <a href="/" class="fw-normal my-4 text-warning"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+                </div>
+                </div>
+            <div class="col-md-12">
+                <div class="col-12 text-center user-dashbord-table-heading">
+                    <h2 class="fw-bold text-uppercase my-4">Quote Requests</h2>
+                </div>
+                <table class="table table-dark table-hover user-dashbord-table">
+                    <thead>
+                        <tr>
+                            <th class="text-start col-2">S. No</th>
+                            <th class="text-end col-2">Name</th>
+                            <th class="text-end col-2">Email</th>
+                            <th class="text-end col-2">Status</th>
+                            <th class="text-end col-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (allQuotes.length > 0) { %>
+                            <% allQuotes.forEach((quote, index) => { %>
+                                <tr>
+                                    <td class="text-start"><%= index + 1 %></td>
+                                    <td class="text-start"><%= quote?.name %></td>
+                                    <td class="text-start"><%= quote?.email %></td>
+                                    <td class="text-start">
+                                        <% if (quote?.status === 'pending') { %>
+                                            <a class="btn btn-warning" href="/auth/quote/update-approve/<%= quote?._id %>">Approve</a>
+
+                                        <% } else if (quote?.status === 'approved') { %>
+                                            <a class="btn btn-success" href="/auth/quote/update-reject/<%= quote?._id %>">Reject</a>
+
+                                        <% } else if (quote?.status === 'rejected') { %>
+                                            <a class="btn btn-warning" href="/auth/quote/update-approve/<%= quote?._id %>">Approve</a>
+
+                                        <% } %>
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="d-flex  justify-content-end gap-1">
+                                            <!-- Request Button -->
+                                            <a class="btn btn-info" href="/request-quote/<%= quote?._id %>">Request</a>
+                                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quoteDetailsModal<%= quote?._id %>">Show</a>
+                            
+                                            
+                                            <!-- Delete Button -->
+                                            <a class="btn btn-danger" href="/auth/quote/delete-quote/<%= quote?._id %>">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+            
+                                <!-- Modal for Quote Details -->
+                                <div class="modal fade" id="quoteDetailsModal<%= quote?._id %>" tabindex="-1" aria-labelledby="quoteDetailsModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="quoteDetailsModalLabel">Quote Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><strong>Name:</strong> <%= quote?.name %></p>
+                                                <p><strong>Email:</strong> <%= quote?.email %></p>
+                                                <p><strong>Phone:</strong> <%= quote?.phone %></p>
+                                                <p><strong>Message:</strong> <%= quote?.message %></p>
+                                                <% if (quote?.attachment) { %>
+                                                    <p><strong>Attachment:</strong> <a href="/pdfs/<%= quote?.attachment %>" target="_blank">View PDF</a></p>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5" class="text-center">No quotes found.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="col-12 text-center user-dashbord-table-heading">
+                    <h2 class="fw-bold text-uppercase my-4">Blog Section</h2>
+                </div>
+                <div class=" mb-4 user-dashbord-quotebutton d-flex justify-content-center">
+                    <a href="quote-request-form.html" data-bs-toggle="modal" data-bs-target="#adminBlogCreateModal" class="btn-default btn-large border">Create Blog</a>
+                </div>
+                <table class="table table-dark table-hover user-dashbord-table">
+                    <thead>
+                        <tr>
+                            <th class="text-start col-2">S. No</th> 
+                            <th class="text-start col-6">Title</th>
+                            <th class="text-end col-4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (allBlogs && allBlogs.length > 0) { %>
+                            <% allBlogs.forEach((blog, index) => { %>
+                                <tr>
+                                    <td class="text-start"><%= index + 1 %></td>
+                                    <td class="text-start"><%= blog.title %></td>
+                                    <td class="text-end">
+                                        <div class="d-flex flex-wrap justify-content-end gap-1">
+                                            <!-- Show Modal Trigger -->
+                                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userDashbordBlogShowModal<%= blog._id %>" href="#">Show</a>
+                
+                                            <!-- Edit Modal Trigger -->
+                                            <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#userDashbordBlogEditModal<%= blog._id %>" href="#">Edit</a>
+                
+                                            <!-- Delete Link -->
+                                            <a class="btn btn-danger" href="/auth/admin/blog/delete/<%= blog._id %>">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                
+                                <!-- Show Modal -->
+                                <div class="modal fade" id="userDashbordBlogShowModal<%= blog._id %>" tabindex="-1" aria-labelledby="userDashbordBlogShowModalLabel<%= blog._id %>" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="userDashbordBlogShowModalLabel<%= blog._id %>">Blog Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h6><strong>Title:</strong> <%= blog?.title %></h6>
+                                                <p><strong>Description:</strong> <%= blog?.description %></p>
+                                                <p><strong>Tags:</strong> <%= blog?.tags?.join(', ') %></p>
+                                               
+                                                <p><strong>Status:</strong> <%= blog?.isActive ? 'Active' : 'Inactive' %></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="userDashbordBlogEditModal<%= blog._id %>" tabindex="-1" aria-labelledby="userDashbordBlogEditModalLabel<%= blog._id %>" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="userDashbordBlogEditModalLabel<%= blog._id %>">Edit Blog</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="/auth/admin/blog/<%= blog._id %>" method="PUT">
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="title" class="form-label">Title</label>
+                                                        <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="description" class="form-label">Description</label>
+                                                        <textarea class="form-control" id="description" name="description" rows="3" required><%= blog.description %></textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="tags" class="form-label">Tags (Comma separated)</label>
+                                                        <input type="text" class="form-control" id="tags" name="tags" value="<%= blog?.tags?.join(", ") %>" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="isActive" class="form-label">Status</label>
+                                                        <select class="form-select" id="isActive" name="isActive" required>
+                                                            <option value="true" <%= blog.isActive ? 'selected' : '' %>>Active</option>
+                                                            <option value="false" <%= !blog.isActive ? 'selected' : '' %>>Inactive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="3" class="text-center">No Blogs Available</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                
+                
+            </div>
+        </div>
+       </div>
+    </div>
+    
+    
+    
+    <!-- Jquery Library File -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Validator js file -->
+    <script src="/js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="/js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="/js/SplitText.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="/js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="/js/function.js"></script>
+    <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
+  </body>
+</html>

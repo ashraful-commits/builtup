@@ -1,0 +1,10 @@
+<li class="nav-item highlighted-menu">
+    <% if (user?.name) { %>
+        <a href="/auth/<%= user?.role %>" class="text-blue-400 uppercase text-pink-700 font-bold ">Dashboard </a>
+        <a href="/change-password" class="text-blue-400 uppercase text-pink-700 font-bold ">Change Password </a>
+        <a href="/auth/logout">Logout</a>
+        <% } else { %>
+            <a class="nav-link" href="/auth/register">Sign in/Sign up</a>
+    <% } %>
+    
+</li>

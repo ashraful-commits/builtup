@@ -1,0 +1,44 @@
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <% if (message) { %>
+                    <p class="text-danger text-center"> <%= message %> </p>
+                <% } else { %>
+                    <p class="text-center">Login Here!</p>
+                <% } %>
+                
+                <form action="/auth/login" method="post">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </div>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <p>Don't have an account? <a href="/auth/register">Sign Up</a></p>
+                    <a href="/forget-password">Forgot password?</a> | 
+                    <a href="/change-password">Change password</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-center w-100">
+                    <a href="#" class="btn btn-outline-primary mx-1"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="btn btn-outline-danger mx-1"><i class="fa fa-google"></i></a>
+                    <a href="#" class="btn btn-outline-dark mx-1"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

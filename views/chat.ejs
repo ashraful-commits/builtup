@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp-like Chat</title>
+    <style>
+      .chat-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: green;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .chat-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .chat-box {
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 300px;
+        height: 400px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .chat-header {
+        background: green;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .chat-messages {
+        height: 300px;
+        overflow-y: scroll;
+        padding: 10px;
+      }
+
+      .chat-input {
+        display: flex;
+        padding: 10px;
+      }
+
+      .chat-input input {
+        flex: 1;
+        border: 1px solid #ccc;
+      }
+
+      .chat-input button {
+        background: green;
+        color: white;
+        border: none;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Chat Icon -->
+    <div class="chat-icon" onclick="toggleChat()">
+      <img src="/whatsapp-icon.png" alt="Chat" />
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <h3>Live Chat</h3>
+        <button onclick="toggleChat()">X</button>
+      </div>
+      <div class="chat-messages" id="messages">
+        <% messages.forEach(msg => { %>
+        <p><strong><%= msg.sender %>:</strong> <%= msg.message %></p>
+        <% }); %>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // Initialize Socket.io
+      const socket = io();
+
+      // Function to toggle chat box visibility
+      function toggleChat() {
+        const chatBox = document.getElementById('chatBox');
+        chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+      }
+
+      // Function to send a chat message
+      function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value;
+
+        if (message) {
+          const sender = 'User'; // You can modify this to dynamically fetch the sender's name
+          socket.emit('chat message', { sender, message });
+
+          // Clear the input field after sending the message
+          messageInput.value = '';
+        }
+      }
+
+      // Listen for incoming chat messages
+      socket.on('chat message', function(data) {
+        const messagesDiv = document.getElementById('messages');
+        const newMessage = document.createElement('p');
+        newMessage.innerHTML = `<strong>${data.sender}:</strong> ${data.message}`;
+        messagesDiv.appendChild(newMessage);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+      });
+    </script>
+  </body>
+</html>
