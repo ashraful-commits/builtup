@@ -404,9 +404,10 @@ a, a:hover {
  .common-bg{
     width: 100vw;
     min-height: 100vh; 
-    background: #12223b url("./admin-panel-bg.png") no-repeat;
+    background: #12223b url("../images3/admin-panel-bg.png") no-repeat ;
     background-position: right bottom;
     background-size: cover; 
+    
     padding: 1rem 0 0 0;
     display: flex;
     flex-direction: column; 
