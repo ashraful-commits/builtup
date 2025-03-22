@@ -37,7 +37,7 @@
 </head>
 <body>
     
-    <a  style="position: absolute; top: 30px; left: 50px; z-index: 100; color: coral;;display:flex; justify-content:center;align-items:center" class="text-warning" href="/"><i class="fa-solid fa-arrow-left"></i><svg style="width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <a  style="position: absolute; top: 20px; left: 20px; z-index: 100; color: coral;display:flex; justify-content:center;align-items:center" class="text-warning" href="/"><i class="fa-solid fa-arrow-left"></i><svg style="width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
       </svg> Back to home</a>
     <div class="auth-body">
@@ -48,9 +48,9 @@
             <div class="auth-form">
                 <h2>Sign In</h2>
                 <% if (message) { %>
-                    <p class="text-xl font-bold text-warning"> <%= message %> </p>
+                    <p style="color: coral; text-align: center;" class="text-md font-bold text-warning"> <%= message %> </p>
                  <% } else { %>
-                    <p class="text-xl font-bold text-warning">Login Here !</p>
+                    <p style="color: coral; text-align: center;" class="text-md font-bold text-warning">Login Here !</p>
                 <% } %>
                 <div class="form-wraper">
                     <form action="/auth/login" method="post">
@@ -64,7 +64,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-warning">Log In</button>
-                            <p style="margin-top: 10px;">Don's have an account? <a href="/auth/register">Sign Up</a></p>
+                            <p style="margin-top: 10px; color: #555;">Don's have an account? <a href="/auth/register">Sign Up</a></p>
                         </div>
                     </form>
                 </div>

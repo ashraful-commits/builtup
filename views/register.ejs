@@ -46,9 +46,9 @@
             <div class="auth-form">
                 <h2>Sign Up</h2>
                 <% if (message) { %>
-                    <p class="text-xl font-bold text-warning"> <%= message %> </p>
+                    <p  style="color: coral; text-align: center;"  class="text-md font-bold text-warning text-center"> <%= message %> </p>
                  <% } else { %>
-                    <p class="text-xl font-bold text-warning">SignUp Here !</p>
+                    <p style="color: coral; text-align: center;" class="text-md font-bold text-warning text-center">SignUp Here !</p>
                 <% } %>
                 <div class="form-wraper">
                     <form action="/auth/register" method="post">
@@ -73,11 +73,7 @@
                     <a href="/auth/forget-password">Forgot password</a>
                     <a href="/auth/login">Log In now</a>
                 </div>
-                <div class="social-login">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                </div>
+                
             </div>
         </div>
     </div>
