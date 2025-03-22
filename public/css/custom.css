@@ -79,7 +79,9 @@ body {
     display: flex;
     align-items: center;
 }
-
+.dropdown-menu[data-bs-popper] {
+    left: -55px !important;
+}
 .logoreliable{
     width: 370px;
     margin-top: -45px;
