@@ -15,7 +15,7 @@ const { localVarFunc } = require('./middlewares/localVarFunc');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
-
+const Chat = require('./models/chat');
 // Environment setup
 dotenv.config();
 
