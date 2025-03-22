@@ -15,8 +15,6 @@ const { localVarFunc } = require('./middlewares/localVarFunc');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
-const Chat = require('./models/chat');
-// Environment setup
 dotenv.config();
 
 
@@ -47,27 +45,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static("public"));
 
 
-// Chat routes and Socket.io event handlers
-app.get('/', async (req, res) => {
-  const messages = await Chat.find();
-  res.render('index', { messages });
-});
-
-io.on('connection', (socket) => {
-  console.log('A user connected');
-
-  // Handling chat messages
-  socket.on('chat message', async (data) => {
-    const chatMessage = new Chat({ sender: data.sender, message: data.message });
-    await chatMessage.save();
-    io.emit('chat message', data); // Broadcast message to all connected clients
-  });
-
-  // Handle user disconnect
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-});
 
 // Router initialization
 app.use('/', publicRoute);
