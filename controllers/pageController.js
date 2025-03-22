@@ -106,7 +106,7 @@ const userSignUp = async (req, res) => {
     const token = makeToken({ id: user._id }, "3d");
     console.log(token);
 
-    const link = `${process.env.APP_LINK}:${process.env.PORT}/auth/active/${token}`;
+    const link = `${process.env.APP_LINK}/auth/active/${token}`;
     console.log(link);
 
     // Send verification email
@@ -301,7 +301,7 @@ const passResetMail = async (req, res) => {
         return validator("Email not Valid!", "/forget-password", req, res);
       } else {
         const token = makeToken({ id: userEmail._id }, "5d");
-        const link = `${process.env.APP_LINK}:${process.env.PORT}/resetpass/${token}`;
+        const link = `${process.env.APP_LINK}/resetpass/${token}`;
         console.log(link)
         await sendAMail(email, {
           name: userEmail.name,
