@@ -30,8 +30,8 @@ const processPayment = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${process.env.APP_LINK}:${process.env.PORT}/payment/success?session_id={CHECKOUT_SESSION_ID}&quote_id=${quote._id}`,
-      cancel_url: `${process.env.APP_LINK}:${process.env.PORT}/auth/user`,
+      success_url: `${process.env.APP_LINK}/payment/success?session_id={CHECKOUT_SESSION_ID}&quote_id=${quote._id}`,
+      cancel_url: `${process.env.APP_LINK}/auth/user`,
     });
 
     // Save payment details in the database
