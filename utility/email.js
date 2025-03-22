@@ -9,17 +9,17 @@ const sendAMail = async (to, data) => {
 
     //====================== create transport
     const transport = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: process.env.MAIL_HOST,
       port: 587,
       auth: {
-        user: "beautifulmind429@gmail.com",
-        pass: "lakh szxg rtbj qokn", // Make sure this password is secured
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS, 
       },
     });
 
     //============================================================= send a mail
     const info = await transport.sendMail({
-      from: `BuiltUp <beautifulmind429@gmail.com>`,
+      from: `BuiltUp ${process.env.MAIL_USER}`,
       to: to,
       subject: `${data.status} Your Account`,
       text: `Account ${data.status}!`,
