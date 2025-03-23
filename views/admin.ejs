@@ -503,8 +503,7 @@
     <script src="/js/config.js"></script>
     <script>
        const socket = io(APP_LINK); // Replace with your server URL
-console.log(APP_LINK)
-// Listen for the 'quote-updated' event
+
 socket.on('quote-updated', (updatedQuote) => {
   if (updatedQuote) {
     window.location.reload();
