@@ -645,8 +645,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/js/config.js"></script>
     <script>
-      const socket = io("https://builtup.onrender.com"); // Replace with your server URL
+      const socket = io(APP_LINK); // Replace with your server URL
+      console.log(APP_LINK); // Replace with your server URL
 
       // Listen for the 'quote-updated' event
       socket.on("quote-updated", (updatedQuote) => {
@@ -657,13 +659,13 @@
 
       // Listen for the 'quote-create' event
       socket.on("quote-create", (newQuote) => {
-        console.log(newQuote)
+        console.log(newQuote);
         if (newQuote) {
           window.location.reload();
         }
       });
       socket.on("quote-delete", (deleted) => {
-        console.log(deleted)
+        console.log(deleted);
         if (deleted) {
           window.location.reload();
         }

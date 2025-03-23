@@ -500,9 +500,10 @@
     <script src="/js/function.js"></script>
     <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/js/config.js"></script>
     <script>
-       const socket = io('https://builtup.onrender.com'); // Replace with your server URL
-
+       const socket = io(APP_LINK); // Replace with your server URL
+console.log(APP_LINK)
 // Listen for the 'quote-updated' event
 socket.on('quote-updated', (updatedQuote) => {
   if (updatedQuote) {
