@@ -570,7 +570,7 @@
                             <h1 class="text-anime-style-3" data-cursor="-opaque">Blog
                             </h1>
                             <a class="wow fadeInUp" data-wow-delay="0.25s" href="/"
-                                style="color: #fff; text-decoration:none; ">Home / Blog / <span
+                                style="color: #1f1e1e; text-decoration:none; "> <a href="/">Home</a> / <a href="/blog">Blog</a> / <span
                                     style="color: #ffb703;"> <%- blog?.title %></span></a>
                         </div>
                     </div>
@@ -586,16 +586,21 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="post-single-image">
+                        <% if(blog?.image){ %>
                         <figure class="image-anime"><img fetchpriority="high" width="800" height="450"
                                 src="/images/<%- blog?.image %>"
                                 class="attachment-large size-large wp-post-image" alt="" decoding="async" /></figure>
+                        <% } else { %>
+                        <figure class="image-anime"><img fetchpriority="high" width="800" height="450"
+                                src="/images/No_Image_Available.jpg"
+                                class="attachment-large size-large wp-post-image" alt="" decoding="async" /></figure>
+                        <% } %>
+                        
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="post-content">
                         <div class="post-entry builtup-block-style">
-
-
 
                            <p><%- blog?.description %></p>
 

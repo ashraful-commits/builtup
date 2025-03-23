@@ -68,7 +68,7 @@ const pofilePhotoPage = (req, res) => {
 const userSignUp = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    console.log(name, email, password);
+
 
     if (!name || !email || !password) {
       return validator("All fields are required", "/auth/register", req, res);
@@ -100,15 +100,14 @@ const userSignUp = async (req, res) => {
       });
     }
 
-    console.log(user);
+
 
     // Generate token for email verification
     const token = makeToken({ id: user._id }, "3d");
-    console.log(token);
+  
 
     const link = `${process.env.APP_LINK}/auth/active/${token}`;
-    console.log(link);
-
+    
     // Send verification email
     await sendAMail(email, {
       name,
@@ -131,7 +130,7 @@ const activeUser = async (req, res) => {
       return validator("User is Not valid", "/auth/login", req, res);
     } else {
       const checkToken = verifyToken(token);
-      console.log(checkToken);
+   
       if (checkToken) {
         await User.findByIdAndUpdate(
           { _id: checkToken.id },
@@ -165,9 +164,9 @@ const loginUser = async (req, res) => {
 
           if (passComp) {
             req.session.user = findUser;
-            console.log(req.session.user);
+        
             const token = makeToken({ id: findUser._id }, "4d");
-            console.log(token);
+         
             res.cookie("authToken", token);
             return validator("",`/auth/${req.session.user.role}`, req, res);
           } else {
@@ -179,7 +178,7 @@ const loginUser = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error.message);
+   
     return validator(error.message, "/auth/login", req, res);
   }
 };
@@ -267,8 +266,7 @@ const galleryPhotoUpload = async (req, res) => {
         $push: { gallery: { $each: gall } },
       }
     );
-    console.log(updateWithGallary.gallery[0]);
-
+    
     return validator("Gallery Uploaded", "/gallery", req, res);
   } catch (error) {
     return validator(error.message, "/gallery", req, res);
@@ -280,7 +278,7 @@ const galleryPhotoUpload = async (req, res) => {
 const galleryPhotoDelet = async (req, res) => {
   //   const { path } = req.params;
   //   const imgpath = `../public/images/${path}`;
-  //   console.log(imgpath);
+
   //   fs.unlinkSync(imgpath);
   //   return validator('File deleted!', '/gallery', req, res);
 };
@@ -302,7 +300,7 @@ const passResetMail = async (req, res) => {
       } else {
         const token = makeToken({ id: userEmail._id }, "5d");
         const link = `${process.env.APP_LINK}/resetpass/${token}`;
-        console.log(link)
+        
         await sendAMail(email, {
           name: userEmail.name,
           link: link,
@@ -327,7 +325,7 @@ const resetpassword = async (req, res) => {
   const { token } = req.params;
   try {
     const checkTokenTwo = verifyToken(token);
-    console.log(checkTokenTwo);
+    
     if (!checkTokenTwo) {
       return validator("/Token not Valid", `/resetpass/${token}`, req, res);
     } else {
@@ -340,7 +338,7 @@ const resetpassword = async (req, res) => {
         await User.findByIdAndUpdate(checkTokenTwo.id, {
           password: await makeHash(newpassword),
         });
-        console.log(checkTokenTwo.id);
+   
         return validator("Password reseted Successfully!", "/auth/login", req, res);
       }
     }

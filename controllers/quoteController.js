@@ -27,10 +27,13 @@ const createQuoteRequest = async (req, res) => {
     });
 
     await newQuote.save();
-    console.log(newQuote)
+    
+
+     const io = req.app.get('io');
+     io.emit('quote-create', newQuote); 
     res.redirect("/auth/user");
   } catch (error) {
-    console.log(error)
+  
     res.redirect("/auth/user");
   }
 };
@@ -63,11 +66,11 @@ const getQuoteById = async (req, res) => {
 const updateQuoteApproved = async (req, res) => {
   try {
     const { name, email, phone, subject, budget, start_date, message } = req.body;
-    const attachment = req.file ? req.file.path : req.body.attachment; // Update file if uploaded
+    const attachment = req.file ? req.file.path : req.body.attachment;
 
     const updatedQuote = await QuoteRequest.findByIdAndUpdate(
       req.params.id,
-      { name, email, phone, subject, budget, start_date, attachment, message,status:"approved" },
+      { name, email, phone, subject, budget, start_date, attachment, message, status: "approved" },
       { new: true, runValidators: true }
     );
 
@@ -75,19 +78,25 @@ const updateQuoteApproved = async (req, res) => {
       return res.status(404).json({ success: false, message: "Quote not found" });
     }
 
+    // Emit a real-time update to ALL connected clients
+    const io = req.app.get('io'); // Get the Socket.IO instance
+    io.emit('quote-updated', updatedQuote); // Emit the updated quote to all clients
+
+    // Redirect the admin to the admin dashboard
     res.redirect("/auth/admin");
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
 const updateQuoteReject = async (req, res) => {
   try {
     const { name, email, phone, subject, budget, start_date, message } = req.body;
-    const attachment = req.file ? req.file.path : req.body.attachment; // Update file if uploaded
+    const attachment = req.file ? req.file.path : req.body.attachment;
 
     const updatedQuote = await QuoteRequest.findByIdAndUpdate(
       req.params.id,
-      { name, email, phone, subject, budget, start_date, attachment, message,status:"rejected" },
+      { name, email, phone, subject, budget, start_date, attachment, message, status: "rejected" },
       { new: true, runValidators: true }
     );
 
@@ -95,6 +104,11 @@ const updateQuoteReject = async (req, res) => {
       return res.status(404).json({ success: false, message: "Quote not found" });
     }
 
+    // Emit a real-time update to ALL connected clients
+    const io = req.app.get('io'); // Get the Socket.IO instance
+    io.emit('quote-updated', updatedQuote); // Emit the updated quote to all clients
+
+    // Redirect the admin to the admin dashboard
     res.redirect("/auth/admin");
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
@@ -108,7 +122,10 @@ const deleteQuoteRequest = async (req, res) => {
         if (!quote) {
           return res.status(404).json({ success: false, message: "Quote not found" });
         }
-        res.redirect("/auth/user");
+        const io = req.app.get('io'); // Get the Socket.IO instance
+    io.emit('quote-delete', "deleted"); // Emit the updated quote to all clients
+
+        res.redirect("/auth/admin");
       } catch (error) {
         res.status(500).json({ success: false, error: error.message });
       }

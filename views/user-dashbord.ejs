@@ -209,125 +209,149 @@
                 <% if (allQuotes.length > 0) { %> <% allQuotes.forEach((quote,
                 index) => { %>
 
-                 <tr>
+                <tr>
                   <td>
                     <div
-                    class="modal fade"
-                    id="invoiceModal"
-                    tabindex="-1"
-                    aria-labelledby="invoiceModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog modal-lg">
-                      <div id="invoiceModalContent" class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header bg-warning text-white">
-                          <h5 class="modal-title" id="invoiceModalLabel">
-                            Invoice Details
-                          </h5>
-                          <button
-                            type="button"
-                            class="btn-close btn-close-white"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
-                        </div>
-  
-                        <!-- Modal Body -->
-                        <div  class="modal-body p-4 bg-white text-dark">
-                          <!-- Invoice Header -->
-                          <div class="row mb-4">
-                            <div class="col-md-6">
-                              <h2 class="fw-bold text-warning"><%= quote?.paymentDetails?.companyName %></h2>
-                              <p class="mb-1"><%= quote?.paymentDetails?.billingAddress %></p>
-                              <p class="mb-1">
-                                <strong>Email:</strong> <%= quote?.paymentDetails?.email %>
-                              </p>
-                            </div>
-                            <div class="col-md-6 text-end">
-                              <h4 class="fw-bold">Invoice #INV12345</h4>
-                              <p class="mb-1">
-                                <strong>Date:</strong> <%= quote?.paymentDetails?.createdAt %>
-                              </p>
-                              <p class="mb-1">
-                                <strong>Due Date:</strong> April 1, 2024
-                              </p>
-                            </div>
+                      class="modal fade"
+                      id="invoiceModal"
+                      tabindex="-1"
+                      aria-labelledby="invoiceModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-lg">
+                        <div id="invoiceModalContent" class="modal-content">
+                          <!-- Modal Header -->
+                          <div class="modal-header bg-warning text-white">
+                            <h5 class="modal-title" id="invoiceModalLabel">
+                              Invoice Details
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close btn-close-white"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
                           </div>
-  
-                          <!-- Customer Details -->
-                          <hr />
-                          <div class="row mb-3">
-                            <div class="col-md-6">
-                              <h5 class="fw-bold">Billed To:</h5>
-                              <p class="mb-1"><strong><%= quote?.paymentDetails?.fullName %></strong></p>
-                              <p class="mb-1"><%= quote?.paymentDetails?.billingAddress %></p>
-                              <p class="mb-1">
-                                <strong>Email:</strong> <%= quote?.paymentDetails?.email %>
-                              </p>
+
+                          <!-- Modal Body -->
+                          <div class="modal-body p-4 bg-white text-dark">
+                            <!-- Invoice Header -->
+                            <div class="row mb-4">
+                              <div class="col-md-6">
+                                <h2 class="fw-bold text-warning">
+                                  <%= quote?.paymentDetails?.companyName %>
+                                </h2>
+                                <p class="mb-1">
+                                  <%= quote?.paymentDetails?.billingAddress %>
+                                </p>
+                                <p class="mb-1">
+                                  <strong>Email:</strong> <%=
+                                  quote?.paymentDetails?.email %>
+                                </p>
+                              </div>
+                              <div class="col-md-6 text-end">
+                                <h4 class="fw-bold">Invoice #INV12345</h4>
+                                <p class="mb-1">
+                                  <strong>Date:</strong> <%=
+                                  quote?.paymentDetails?.createdAt %>
+                                </p>
+                                <p class="mb-1">
+                                  <strong>Due Date:</strong> April 1, 2024
+                                </p>
+                              </div>
                             </div>
-                          </div>
-  
-                          <div class="row">
-                            <!-- Invoice Table -->
-                            <div class="table-responsive w-full">
-                              <table
-                                class="table table-bordered table-hover text-center"
+
+                            <!-- Customer Details -->
+                            <hr />
+                            <div class="row mb-3">
+                              <div class="col-md-6">
+                                <h5 class="fw-bold">Billed To:</h5>
+                                <p class="mb-1">
+                                  <strong
+                                    ><%= quote?.paymentDetails?.fullName
+                                    %></strong
+                                  >
+                                </p>
+                                <p class="mb-1">
+                                  <%= quote?.paymentDetails?.billingAddress %>
+                                </p>
+                                <p class="mb-1">
+                                  <strong>Email:</strong> <%=
+                                  quote?.paymentDetails?.email %>
+                                </p>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <!-- Invoice Table -->
+                              <div class="table-responsive w-full">
+                                <table
+                                  class="table table-bordered table-hover text-center"
+                                >
+                                  <thead class="table-dark">
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Description</th>
+                                      <th>Quantity</th>
+                                      <th>Unit Price</th>
+                                      <th>Total</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>Product A</td>
+                                      <td>1</td>
+                                      <td>
+                                        <%= quote?.paymentDetails?.amount %>
+                                      </td>
+                                      <td>
+                                        <%= quote?.paymentDetails?.amount %>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <!-- Invoice Total -->
+                            <div class="row mt-4">
+                              <div class="col-md-6"></div>
+                              <div class="col-md-6 text-end">
+                                <h5 class="fw-bold">
+                                  Subtotal:
+                                  <span class="text-warning"
+                                    ><%= quote?.paymentDetails?.amount %></span
+                                  >
+                                </h5>
+                                <h5 class="fw-bold">
+                                  Tax (0%):
+                                  <span class="text-danger">$00.00</span>
+                                </h5>
+                                <h4 class="fw-bold border-top pt-2">
+                                  Total:
+                                  <span class="text-success"
+                                    ><%= quote?.paymentDetails?.amount %></span
+                                  >
+                                </h4>
+                              </div>
+                            </div>
+
+                            <!-- Download PDF Button -->
+                            <div class="text-center mt-4">
+                              <!-- Button is visible by default, hidden during printing -->
+                              <button
+                                id="downloadPdfBtn"
+                                class="btn btn-success btn-lg px-4"
                               >
-                                <thead class="table-dark">
-                                  <tr>
-                                    <th>#</th>
-                                    <th>Description</th>
-                                    <th>Quantity</th>
-                                    <th>Unit Price</th>
-                                    <th>Total</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td>Product A</td>
-                                    <td>1</td>
-                                    <td><%= quote?.paymentDetails?.amount %></td>
-                                    <td><%= quote?.paymentDetails?.amount %></td>
-                                  </tr>
-                                  
-                                </tbody>
-                              </table>
+                                <i class="bi bi-download"></i> Download as PDF
+                              </button>
                             </div>
                           </div>
-                          <!-- Invoice Total -->
-                          <div class="row mt-4">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6 text-end">
-                              <h5 class="fw-bold">
-                                Subtotal:
-                                <span class="text-warning"><%= quote?.paymentDetails?.amount %></span>
-                              </h5>
-                              <h5 class="fw-bold">
-                                Tax (0%): <span class="text-danger">$00.00</span>
-                              </h5>
-                              <h4 class="fw-bold border-top pt-2">
-                                Total: <span class="text-success"><%= quote?.paymentDetails?.amount %></span>
-                              </h4>
-                            </div>
-                          </div>
-  
-                          <!-- Download PDF Button -->
-                          <div class="text-center mt-4">
-                            <!-- Button is visible by default, hidden during printing -->
-                            <button id="downloadPdfBtn" class="btn btn-success btn-lg px-4">
-                              <i class="bi bi-download"></i> Download as PDF
-                            </button>
-                          </div>
-                          
-                         
                         </div>
                       </div>
                     </div>
-                  </div>
                   </td>
-                 </tr>
+                </tr>
                 <tr>
                   <td class="text-start"><%= index + 1 %></td>
                   <td class="text-start"><%= quote?.name %></td>
@@ -342,16 +366,16 @@
                       >
                         Show
                       </button>
-                      <% if (quote && quote.paymentDetails && quote.paymentDetails.amount) { %>
-                        <a
-                          data-bs-toggle="modal"
-                          data-bs-target="#invoiceModal"
-                          class="btn btn-success btn-sm"
-                        >
-                          Download
-                        </a>
+                      <% if (quote && quote.paymentDetails &&
+                      quote.paymentDetails.amount) { %>
+                      <a
+                        data-bs-toggle="modal"
+                        data-bs-target="#invoiceModal"
+                        class="btn btn-success btn-sm"
+                      >
+                        Download
+                      </a>
                       <% } %>
-                      
 
                       <button class="btn btn-success btn-sm">
                         <%= quote?.payment %>
@@ -525,7 +549,7 @@
                   <% } %>
                 </tr>
                 <!-- invoic model  -->
-                
+
                 <!-- Modal for Each Quote -->
                 <div
                   class="modal fade"
@@ -581,8 +605,6 @@
                 <% } %>
               </tbody>
             </table>
-        
-
           </div>
         </div>
       </div>
@@ -621,28 +643,56 @@
     <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
+      const socket = io("https://builtup.onrender.com"); // Replace with your server URL
+
+      // Listen for the 'quote-updated' event
+      socket.on("quote-updated", (updatedQuote) => {
+        if (updatedQuote) {
+          window.location.reload();
+        }
+      });
+
+      // Listen for the 'quote-create' event
+      socket.on("quote-create", (newQuote) => {
+        console.log(newQuote)
+        if (newQuote) {
+          window.location.reload();
+        }
+      });
+      socket.on("quote-delete", (deleted) => {
+        console.log(deleted)
+        if (deleted) {
+          window.location.reload();
+        }
+      });
+
+      // pdf downlaod
       document
         .getElementById("downloadPdfBtn")
         .addEventListener("click", function () {
           const { jsPDF } = window.jspdf;
-    
+
           // Temporarily hide the button to exclude it from the PDF
           const downloadBtn = document.getElementById("downloadPdfBtn");
           downloadBtn.style.display = "none";
           // Capture the modal content
-          html2canvas(document.querySelector("#invoiceModalContent")).then((canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("p", "mm", "a4");
-            const imgWidth = 190; // Fit width within A4
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    
-            pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-            pdf.save("quote-details.pdf");
-    
-            // Show the button again after the download
-            downloadBtn.style.display = "inline-block";
-          });
+          html2canvas(document.querySelector("#invoiceModalContent")).then(
+            (canvas) => {
+              const imgData = canvas.toDataURL("image/png");
+              const pdf = new jsPDF("p", "mm", "a4");
+              const imgWidth = 190; // Fit width within A4
+              const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+              pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+              pdf.save("quote-details.pdf");
+
+              // Show the button again after the download
+              downloadBtn.style.display = "inline-block";
+            }
+          );
         });
     </script>
   </body>

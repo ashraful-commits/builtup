@@ -72,14 +72,22 @@ const paymentSuccess = async (req, res) => {
       return validator("Session not found", "/auth/user", req, res);
     }
 
-    // Update the quote status to "approved"
-    await Quote.findByIdAndUpdate(quote_id, { payment: "paid" });
+    // Update the quote status to "paid"
+    const updatedQuote = await Quote.findByIdAndUpdate(
+      quote_id,
+      { payment: "paid" },
+      { new: true } // Return the updated document
+    );
 
     // Update payment status in the database
     await Payment.updateOne(
       { paymentIntentId: session.id },
       { status: "succeeded", paymentStatus: "processed" }
     );
+
+    // Emit a real-time update to all clients
+    const io = req.app.get('io'); // Get the Socket.IO instance
+    io.emit('payment-success', "success"); // Emit the updated quote
 
     return validator("Payment successful", "/auth/user", req, res);
   } catch (error) {

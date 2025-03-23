@@ -37,13 +37,7 @@
   </head>
   <body>
      
-      <!-- Preloader Start -->
-      <div class="preloader">
-        <div class="loading-container">
-            <div class="loading"></div>
-            <div id="loading-icon"><img src="/images/loader.svg" alt=""></div>
-        </div>
-    </div>
+
     <!-- Preloader End -->
 
     <!--admin quote show  Modal -->
@@ -308,6 +302,7 @@
 
                                         <% } %>
                                     </td>
+                                    <td class="text-start"><%= quote?.payment %></td>
                                     <td class="text-end">
                                         <div class="d-flex  justify-content-end gap-1">
                                             <!-- Request Button -->
@@ -378,7 +373,7 @@
                                     <td class="text-end">
                                         <div class="d-flex flex-wrap justify-content-end gap-1">
                                             <!-- Show Modal Trigger -->
-                                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userDashbordBlogShowModal<%= blog._id %>" href="#">Show</a>
+                                            <a class="btn btn-primary" href="/blogopen/<%= blog?._id %>" href="#">Show</a>
                 
                                             <!-- Edit Modal Trigger -->
                                             <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#userDashbordBlogEditModal<%= blog._id %>" href="#">Edit</a>
@@ -400,9 +395,10 @@
                                             <div class="modal-body">
                                                 <h6><strong>Title:</strong> <%= blog?.title %></h6>
                                                 <p><strong>Description:</strong> <%= blog?.description %></p>
-                                                <p><strong>Tags:</strong> <%= blog?.tags?.join(', ') %></p>
-                                               
-                                                <p><strong>Status:</strong> <%= blog?.isActive ? 'Active' : 'Inactive' %></p>
+                                               <% if (blog?.tags !="") { %>
+                                                <p><strong>Tags:</strong> <%= blog?.tags %></p>
+                                                <% } %>
+                                                <p><strong>Active:</strong> <%= blog?.isActive ? 'Active' : 'Inactive' %></p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -419,11 +415,15 @@
                                                 <h5 class="modal-title" id="userDashbordBlogEditModalLabel<%= blog._id %>">Edit Blog</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <form action="/auth/admin/blog/<%= blog._id %>" method="PUT">
+                                            <form action="/auth/admin/blog/<%= blog._id %>" method="POST" enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label for="title" class="form-label">Title</label>
                                                         <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="title" class="form-label">Blog image</label>
+                                                        <input type="file" class="form-control" id="photo" name="photo"  required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="description" class="form-label">Description</label>
@@ -431,7 +431,9 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="tags" class="form-label">Tags (Comma separated)</label>
-                                                        <input type="text" class="form-control" id="tags" name="tags" value="<%= blog?.tags?.join(", ") %>" required>
+                                                        
+                                                            <input type="text" class="form-control" id="tags" name="tags" value="<%= blog?.tags %>" required>
+                                                          
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="isActive" class="form-label">Status</label>
@@ -497,5 +499,31 @@
     <!-- Main Custom js file -->
     <script src="/js/function.js"></script>
     <script src="https://demo.awaikenthemes.com/assets/js/theme-panel.js"></script>
-  </body>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+       const socket = io('https://builtup.onrender.com'); // Replace with your server URL
+
+// Listen for the 'quote-updated' event
+socket.on('quote-updated', (updatedQuote) => {
+  if (updatedQuote) {
+    window.location.reload();
+  }
+});
+
+// Listen for the 'quote-create' event
+socket.on('quote-create', (newQuote) => {
+    console.log(newQuote)
+  if (newQuote) {
+    window.location.reload();
+  }
+});
+// Listen for the 'quote-create' event
+socket.on('payment-success', (success) => {
+    console.log(success)
+  if (success) {
+    window.location.reload();
+  }
+});
+      </script>  
+</body>
 </html>

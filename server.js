@@ -23,7 +23,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const server = http.createServer(app);
 const io = new Server(server);
-
+app.set('io', io);
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

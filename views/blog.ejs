@@ -141,7 +141,11 @@
                         <div class="post-featured-image" data-cursor-text="View">
                           <figure>
                             <a href="/blogopen/<%= blog?._id %>" class="image-anime">
+                                <% if (blog?.image) { %>
                               <img src="/images/<%= blog?.image %>" alt="<%= blog?.title %>">
+                                <% } else { %>
+                              <img src="/images/No_Image_Available.jpg" alt="Placeholder Image">
+                                <% } %>
                             </a>
                           </figure>
                         </div>
@@ -184,7 +188,11 @@
                     <div class="post-featured-image" data-cursor-text="View">
                         <figure>
                             <a href="/blogopen/<%= blog?._id %>" class="image-anime">
-                                <img src="/images/<%= blog?.image %>" alt="">
+                                <% if (blog?.image) { %>
+                                    <img src="/images/<%= blog?.image %>" alt="">
+                                <% } else { %>
+                                    <img src="/images/No_Image_Available.jpg" alt="Placeholder Image">
+                                <% } %>
                             </a>
                         </figure>
                     </div>

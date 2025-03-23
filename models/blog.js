@@ -19,6 +19,7 @@ const blogSchema = mongoose.Schema(
     tags: {
       type: String,
       trim: true,
+      default:""
     },
     comments: {
       type: [String],

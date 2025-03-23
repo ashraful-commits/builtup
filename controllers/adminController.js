@@ -9,9 +9,9 @@ const admindashbord = async(req, res)=>{
                 return validator("Please login first", "/auth/login", req, res);
             }
             const allQuotes = await QuoteRequest.find().sort({ createdAt: -1 });
-           console.log(allQuotes)
+           
             const allBlogs = await Blog.find().sort({ createdAt: -1 });
-            console.log(allBlogs)
+            
             res.render("admin", { allQuotes,allBlogs }); 
         } catch (error) {
             console.error("Error fetching quotes:", error);

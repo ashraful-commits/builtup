@@ -18,7 +18,6 @@ const createBlog = async (req, res) => {
       tags,
     });
 
-    console.log("New Blog Data:", newBlog);
 
     await newBlog.save();
     res.redirect("/auth/admin");
@@ -54,12 +53,12 @@ const getBlogById = async (req, res) => {
 // Update a blog post
 const updateBlog = async (req, res) => {
   try {
-    const { title, description, tags } = req.body;
-    const image = req.file.fileName ? req.file.fileName :null;
-    console.log(tags)
+    const { title, description, tags,isActive} = req.body;
+    const image = req.file ? req.file.filename :null;
+    console.log(title, description, tags,isActive)
     const updatedBlog = await Blog.findByIdAndUpdate(
       req.params.id,
-      { title, description, image, tags },
+      { title, description, image, tags,isActive },
       { new: true, runValidators: true }
     );
 

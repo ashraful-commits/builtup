@@ -20,7 +20,7 @@ router.get("/", getAllBlogs);
 router.get("/:id", getBlogById);
 
 // Update a blog post (with file upload support)
-router.put("/:id", photoMulter, updateBlog);
+router.post("/:id", photoMulter, updateBlog);
 
 // Delete a blog post
 router.get("/delete/:id", deleteBlog);
