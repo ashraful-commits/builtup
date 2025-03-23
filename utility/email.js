@@ -47,7 +47,7 @@ const sendAMail = async (to, data) => {
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
     <!-- Company Logo -->
     <div style="text-align: start; margin-bottom: 20px;">
-      <img src="${process.env.APP_LINK}/images2/reliable-logo.png" alt="Builtup - Construction Logo" style="width: 300px; height: auto;">
+      <img src="${process.env.APP_LINK}/images2/reliable-logo.jpg" alt="Builtup - Construction Logo" style="width: 300px; height: auto;">
     </div>
     <h2>Hi ${data.name},</h2>
     <p>We noticed you recently signed up for an account with us. To complete your Activation, please click the button below:</p>
