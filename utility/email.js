@@ -7,10 +7,10 @@ const sendAMail = async (to, data) => {
   try {
     // Validate environment variables
     if (
-      !process.env.MAIL_ENV_HOST ||
-      !process.env.MAIL_ENV_PORT ||
-      !process.env.MAIL_ENV_USER ||
-      !process.env.MAIL_ENV_PASS
+      !process.env.MAIL_HOST ||
+      !process.env.MAIL_PORT ||
+      !process.env.MAIL_USER ||
+      !process.env.MAIL_PASS
     ) {
       throw new Error("Missing email configuration in environment variables.");
     }
@@ -18,12 +18,12 @@ const sendAMail = async (to, data) => {
     // Create transport
     const transport = nodemailer.createTransport({
       service: "gmail",
-      host: process.env.MAIL_ENV_HOST,
-      port: parseInt(process.env.MAIL_ENV_PORT, 10),
-      secure: process.env.MAIL_ENV_PORT === "465", // true for port 465
+      host: process.env.MAIL_HOST,
+      port: parseInt(process.env.MAIL_PORT, 10),
+      secure: process.env.MAIL_PORT === "465", // true for port 465
       auth: {
-        user: process.env.MAIL_ENV_USER,
-        pass: process.env.MAIL_ENV_PASS,
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
       },
     });
 
@@ -31,7 +31,7 @@ const sendAMail = async (to, data) => {
     await transport.sendMail({
       from: {
         name: "Builtup - Construction", // Use a recognizable sender name
-        address: process.env.MAIL_ENV_USER,
+        address: process.env.MAIL_USER,
       },
       to: to,
       subject: `Complete Your Activation, ${data.name}`,
